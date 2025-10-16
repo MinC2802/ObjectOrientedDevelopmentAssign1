@@ -1,123 +1,188 @@
-import java.util.*;
 
-// -----------------------------
-// Class: Product
-// -----------------------------
-class Product {
-    private String id;
-    private String name;
-    private double price;
-
-    public Product(String id, String name, double price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
-
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public double getPrice() { return price; }
-
-    @Override
-    public String toString() {
-        return "[" + id + "] " + name + " - $" + price;
+//Classes
+public class Guest {
+    private void register() {
+        // Registers user
     }
 }
 
-// -----------------------------
-// Class: Order
-// -----------------------------
-class Order {
-    private static int counter = 1;
-    private int orderId;
-    private Date orderDate;
-    private List<Product> productList;
+public class User {
+    public String userid;
 
-    public Order(List<Product> products) {
-        this.orderId = counter++;
-        this.orderDate = new Date();
-        this.productList = new ArrayList<>(products);
+    private void login() {
+        // login function
     }
 
-    public int getOrderId() { return orderId; }
-    public Date getOrderDate() { return orderDate; }
-    public List<Product> getProductList() { return productList; }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Order #" + orderId + " (" + orderDate + ")\n");
-        for (Product p : productList) {
-            sb.append("   - ").append(p.getName()).append(" ($").append(p.getPrice()).append(")\n");
-        }
-        return sb.toString();
+    private void logout() {
+        // logout function
     }
 }
 
-// -----------------------------
-// Class: Customer
-// -----------------------------
-class Customer {
-    private String name;
+public class Admin extends User {
+    private void addProduct(String productid, String name, String description, double price, int stock,
+            String category) {
+        // adds Product
+    }
+
+    private void removeProduct(String productid, String name, String description, double price, int stock,
+            String category) {
+        // removes product
+    }
+
+    private void updateProduct(String productid, String name, String description, double price, int stock,
+            String category) {
+        // updates product
+    }
+
+    private void updateStock(String productid, int stock) {
+        // updates inventory
+    }
+}
+
+public class Customer extends User {
+    private String username;
     private String email;
-    private List<Order> orderHistory;
+    private String contact;
+    private String passwordHash;
+    private String address;
 
-    public Customer(String name, String email) {
-        this.name = name;
-        this.email = email;
-        this.orderHistory = new ArrayList<>();
+    protected browseProducts(){
+        //returns list of products 
     }
 
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-
-    // Place an order
-    public void placeOrder(List<Product> products) {
-        Order newOrder = new Order(products);
-        orderHistory.add(newOrder);
-        System.out.println("✅ Order placed successfully!");
+    protected searchProducts(String productid){
+        //returns list of products 
     }
 
-    // View past orders
-    public void viewOrderHistory() {
-        if (orderHistory.isEmpty()) {
-            System.out.println("No past orders found.");
-        } else {
-            System.out.println("🧾 Order History for " + name + ":");
-            for (Order order : orderHistory) {
-                System.out.println(order);
-            }
-        }
-    }
-
-    @Override
-    public String toString() {
-        return name + " (" + email + ")";
+    protected searchProducts(String productname){
+        //returns list of products 
     }
 }
 
-// -----------------------------
-// Main Class: CustomerManagementSystem
-// -----------------------------
+public class Product {
+    public String productid;
+    public String name;
+    private String description;
+    private double price;
+    private int stock;
+    private String category;
+
+    public getDetails(){
+        //get product details
+    }
+
+    public setDetails(){
+        //set product details
+    }
+
+    public checkStock(){
+        //returns boolean
+    }
+}
+
+public class Gadget extends Product {
+    public String brand;
+}
+
+public class Cart {
+    public String cartid;
+    public String[] cartitems;
+
+    public void addItem(String productid, int quantity) {
+        // adds item to cart
+    }
+
+    public void removeItem(String productid) {
+        // adds item to cart
+    }
+
+    public double calculateTotal() {
+        // calculates total
+    }
+
+    public void reviewCart() {
+        // check cart items
+    }
+
+    public void clearCart() {
+        // removes all items from cart
+    }
+}
+
+public class Order {
+    public String orderid;
+    private String orderDate;
+    private double totalAmount;
+    private String customerid;
+    public String status;
+    private String[] orderItems;
+
+    public void updateStatus(String newStatus) {
+        // updates status of order
+    }
+
+    public String[] viewHistory() {
+        // view order history
+    }
+
+    public boolean processOrder() {
+        // sends order for processing
+    }
+}
+
+public class CartItem {
+    public String productid;
+    private int quantity;
+
+    public void updateQuantity(String productid, int newQuantity) {
+        // updates quantity of product in cart
+    }
+
+    public double calculateSubotal(int quantity, double price) {
+        // returns double of subtotal
+    }
+}
+
+public class OrderItem {
+    private int quantity;
+
+    public void updateQuantity(String productid, int newQuantity) {
+        // updates quantity of product in cart
+    }
+
+    public double calculateSubotal(int quantity, double price) {
+        // returns double of subtotal
+    }
+}
+
+public class Payment {
+    public String paymentid;
+    private double amount;
+    private String paymentDate;
+    private String paymentStatus;
+
+    public boolean processPayment() {
+        // processes payment
+    }
+
+    public boolean validatePayment() {
+        // view order history
+    }
+
+    public String[] viewPaymentDetails() {
+        // sends order for processing
+    }
+}
+
+public class EmailSystem {
+    public void sendConfirmationEmail(String email) {
+        // sends confirmation email
+    }
+}
+
+// Main Program
 public class CustomerManagementSystem {
     public static void main(String[] args) {
-        // Sample products
-        Product p1 = new Product("P001", "Laptop", 3500.00);
-        Product p2 = new Product("P002", "Smartphone", 1200.00);
-        Product p3 = new Product("P003", "Headphones", 150.00);
-
-        // Create a customer
-        Customer customer = new Customer("Alice Tan", "alice@example.com");
-
-        // Place first order
-        List<Product> order1Products = Arrays.asList(p1, p3);
-        customer.placeOrder(order1Products);
-
-        // Place second order
-        List<Product> order2Products = Arrays.asList(p2);
-        customer.placeOrder(order2Products);
-
-        // View past orders
-        customer.viewOrderHistory();
     }
+
 }

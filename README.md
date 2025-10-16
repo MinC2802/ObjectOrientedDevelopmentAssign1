@@ -1,3 +1,6 @@
 # ObjectOrientedDevelopmentAssign1
 
-i love hamburers and chesesbuggers
+Roles and Responsibilities
+1. Gadget Management - Keo
+2. Customer Management - Min
+3. Order Processing - Rex
