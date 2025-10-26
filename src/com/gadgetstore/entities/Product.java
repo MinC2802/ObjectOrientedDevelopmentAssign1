@@ -21,10 +21,10 @@ public class Product {
     
     // Getters and setters with validation
     public String getProductId() { return productId; }
-    public void setProductId(String productId) { this.productId = productId; }
+    public synchronized void setProductId(String productId) { this.productId = productId; }
     
     public String getName() { return name; }
-    public void setName(String name) { 
+    public synchronized void setName(String name) { 
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Product name cannot be empty");
         }
@@ -32,10 +32,10 @@ public class Product {
     }
     
     public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public  synchronized void setDescription(String description) { this.description = description; }
     
     public double getPrice() { return price; }
-    public void setPrice(double price) { 
+    public synchronized void setPrice(double price) { 
         if (price < 0) {
             throw new IllegalArgumentException("Price cannot be negative");
         }
@@ -43,7 +43,7 @@ public class Product {
     }
     
     public int getstock() { return stock; }
-    public void setstock(int stock) { 
+    public synchronized void setstock(int stock) { 
         if (stock < 0) {
             throw new IllegalArgumentException("Stock quantity cannot be negative");
         }
@@ -51,18 +51,18 @@ public class Product {
     }
     
     public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public synchronized void setCategory(String category) { this.category = category; }
     
     
     // Business methods
-    public void reduceStock(int quantity) {
+    public synchronized void reduceStock(int quantity) {
         if (quantity > stock) {
             throw new IllegalArgumentException("Insufficient stock");
         }
         stock -= quantity;
     }
     
-    public void addStock(int quantity) {
+    public synchronized void addStock(int quantity) {
         if (quantity < 0) {
             throw new IllegalArgumentException("Quantity to add cannot be negative");
         }
