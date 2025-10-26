@@ -1,0 +1,50 @@
+package gadgetManagement;
+
+public class Products {
+    protected String productId;
+    protected String name;
+    protected String description;
+    protected double price;
+    protected int stock;
+    protected String category; 
+
+    public Products(String productId, String name, String description, double price, int stock, String category){
+        this.productId = productId;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+        this.category = category;}
+
+    public String getProductId(){
+        return productId;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public double getPrice(){
+        return price;
+    }
+    public int getStock(){
+        return stock;
+    }
+    public String getCategory(){
+        return category;
+    }
+    public synchronized void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Gadget{productId='%s', name='%s', description='%s', price=%.2f, stock=%d, category='%s'}",
+                productId, name, description, price, stock, category);
+    }
+}
+
+
+
+
