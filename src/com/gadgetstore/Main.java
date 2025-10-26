@@ -181,7 +181,7 @@ public class Main {
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
             System.out.printf("%d. %s | Stock: %d | Price: $%.2f\n", 
-                i + 1, product.getName(), product.getStockQuantity(), product.getPrice());
+                i + 1, product.getName(), product.getstock(), product.getPrice());
         }
         
         ConsoleHelper.pause();
@@ -230,7 +230,7 @@ public class Main {
         String name = ConsoleHelper.readNonEmptyString("Name [" + product.getName() + "]: ");
         String description = ConsoleHelper.readNonEmptyString("Description [" + product.getDescription() + "]: ");
         String priceStr = ConsoleHelper.readNonEmptyString("Price [" + product.getPrice() + "]: ");
-        String stockStr = ConsoleHelper.readNonEmptyString("Stock [" + product.getStockQuantity() + "]: ");
+        String stockStr = ConsoleHelper.readNonEmptyString("Stock [" + product.getstock() + "]: ");
         String category = ConsoleHelper.readNonEmptyString("Category [" + product.getCategory() + "]: ");
         String brand = ConsoleHelper.readNonEmptyString("Brand [" + product.getBrand() + "]: ");
         
@@ -238,7 +238,7 @@ public class Main {
             if (!name.isEmpty()) product.setName(name);
             if (!description.isEmpty()) product.setDescription(description);
             if (!priceStr.isEmpty()) product.setPrice(Double.parseDouble(priceStr));
-            if (!stockStr.isEmpty()) product.setStockQuantity(Integer.parseInt(stockStr));
+            if (!stockStr.isEmpty()) product.setstock(Integer.parseInt(stockStr));
             if (!category.isEmpty()) product.setCategory(category);
             if (!brand.isEmpty()) product.setBrand(brand);
             
@@ -278,13 +278,13 @@ public class Main {
             return;
         }
         
-        System.out.println("Current stock: " + product.getStockQuantity());
+        System.out.println("Current stock: " + product.getstock());
         int quantity = ConsoleHelper.readPositiveInt("Enter quantity to add (negative to remove): ");
         
         try {
             inventoryService.updateStock(productId, quantity);
             System.out.println("Stock updated successfully! New stock: " + 
-                             inventoryService.getProduct(productId).getStockQuantity());
+                             inventoryService.getProduct(productId).getstock());
         } catch (InsufficientStockException e) {
             System.out.println("Error updating stock: " + e.getMessage());
         } catch (Exception e) {
@@ -301,7 +301,7 @@ public class Main {
         long totalProducts = products.size();
         long outOfStock = products.stream().filter(p -> !p.isInStock()).count();
         double totalInventoryValue = products.stream()
-                .mapToDouble(p -> p.getPrice() * p.getStockQuantity())
+                .mapToDouble(p -> p.getPrice() * p.getstock())
                 .sum();
         
         System.out.printf("Total Products: %d\n", totalProducts);
@@ -326,7 +326,7 @@ public class Main {
             Product product = products.get(i);
             System.out.printf("%d. %s - %s | $%.2f | Stock: %d\n", 
                 i + 1, product.getBrand(), product.getName(), 
-                product.getPrice(), product.getStockQuantity());
+                product.getPrice(), product.getstock());
         }
         
         ConsoleHelper.pause();

@@ -49,7 +49,7 @@ public class OrderService {
         if (!inventoryService.checkStock(productId, quantity)) {
             throw new InsufficientStockException(
                 String.format("Insufficient stock for %s. Available: %d, Requested: %d",
-                            product.getName(), product.getStockQuantity(), quantity)
+                            product.getName(), product.getstock(), quantity)
             );
         }
         

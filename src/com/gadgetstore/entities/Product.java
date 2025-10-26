@@ -1,31 +1,27 @@
 package com.gadgetstore.entities;
 
-/**
- * Product class representing gadgets in the store
- * Demonstrates encapsulation
- */
 public class Product {
+    //Private attributes (id, name, desc, price, stock, category)
     private String productId;
     private String name;
     private String description;
     private double price;
-    private int stockQuantity;
+    private int stock;
     private String category;
-    private String brand;
-    
-    public Product(String productId, String name, String description, double price, 
-                  int stockQuantity, String category, String brand) {
+
+    //Constructor (default)
+    public Product(String productId, String name, String description, double price, int stock, String category) {
         this.productId = productId;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.stockQuantity = stockQuantity;
+        this.stock = stock;
         this.category = category;
-        this.brand = brand;
     }
     
     // Getters and setters with validation
     public String getProductId() { return productId; }
+    public void setProductId(String productId) { this.productId = productId; }
     
     public String getName() { return name; }
     public void setName(String name) { 
@@ -46,49 +42,47 @@ public class Product {
         this.price = price; 
     }
     
-    public int getStockQuantity() { return stockQuantity; }
-    public void setStockQuantity(int stockQuantity) { 
-        if (stockQuantity < 0) {
+    public int getstock() { return stock; }
+    public void setstock(int stock) { 
+        if (stock < 0) {
             throw new IllegalArgumentException("Stock quantity cannot be negative");
         }
-        this.stockQuantity = stockQuantity; 
+        this.stock = stock; 
     }
     
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
     
-    public String getBrand() { return brand; }
-    public void setBrand(String brand) { this.brand = brand; }
     
     // Business methods
     public void reduceStock(int quantity) {
-        if (quantity > stockQuantity) {
+        if (quantity > stock) {
             throw new IllegalArgumentException("Insufficient stock");
         }
-        stockQuantity -= quantity;
+        stock -= quantity;
     }
     
     public void addStock(int quantity) {
         if (quantity < 0) {
             throw new IllegalArgumentException("Quantity to add cannot be negative");
         }
-        stockQuantity += quantity;
+        stock += quantity;
     }
     
     public boolean isInStock() {
-        return stockQuantity > 0;
+        return stock > 0;
     }
     
     @Override
     public String toString() {
-        return String.format("Product{id='%s', name='%s', brand='%s', price=%.2f, stock=%d}", 
-                           productId, name, brand, price, stockQuantity);
+        return String.format("Product{id='%s', name='%s', price=%.2f, stock=%d}",
+                             productId, name, price, stock);
     }
     
     public String getDetailedInfo() {
         return String.format(
-            "Product ID: %s\nName: %s\nBrand: %s\nCategory: %s\nPrice: $%.2f\nStock: %d\nDescription: %s",
-            productId, name, brand, category, price, stockQuantity, description
+            "Product ID: %s\nName: %s\nCategory: %s\nPrice: $%.2f\nStock: %d\nDescription: %s",
+            productId, name, category, price, stock, description
         );
     }
 }
