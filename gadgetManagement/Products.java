@@ -34,8 +34,24 @@ public class Products {
     public String getCategory(){
         return category;
     }
+    
+    public synchronized void setProductId(String productId) {
+        this.productId = productId;
+    }
+    public synchronized void setName(String name) {
+        this.name = name;
+    }
+    public synchronized void setDescription(String description) {
+        this.description = description;
+    }
+    public synchronized void setPrice(double price) {
+        this.price = price;
+    }
     public synchronized void setStock(int stock) {
         this.stock = stock;
+    }
+    public synchronized void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
