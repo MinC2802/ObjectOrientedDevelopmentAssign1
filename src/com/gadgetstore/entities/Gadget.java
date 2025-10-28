@@ -1,4 +1,4 @@
-package gadgetManagement;
+package com.gadgetstore.entities;
 
 import gadgetManagement.Products;
 
