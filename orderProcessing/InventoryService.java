@@ -1,8 +1,6 @@
-package com.gadgetstore.services;
+package orderProcessing;
 
-import orderProcessing.Product;
-
-public interface InventoryService2 {
+public interface InventoryService {
     Product findProductById(String productId);
     boolean reserveStock(String productId, int quantity);
     void releaseStock(String productId, int quantity);

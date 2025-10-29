@@ -1,8 +1,6 @@
-package com.gadgetstore.services;
+package orderProcessing;
 
 import java.util.List;
-
-import com.gadgetstore.entities.Payment;
 
 public class CreditCardPayment extends Payment {
     private String cardNumber;

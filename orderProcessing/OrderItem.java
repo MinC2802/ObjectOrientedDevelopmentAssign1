@@ -1,7 +1,5 @@
 package orderProcessing;
 
-import com.gadgetstore.entities.CartItem;
-
 public class OrderItem extends CartItem {
     private String orderId;
 

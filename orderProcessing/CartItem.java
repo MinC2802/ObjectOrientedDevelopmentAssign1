@@ -1,4 +1,4 @@
-package com.gadgetstore.entities;
+package orderProcessing;
 
 /** Cart item to store items temporarily */
 

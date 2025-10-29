@@ -1,6 +1,8 @@
 package com.gadgetstore.entities;
 
-public class Gadget extends Product{
+import gadgetManagement.Products;
+
+public class Gadget extends Products{
 
     public String brand;
     public Gadget(String productId, String name, String description, double price, int stock, String category, String brand) {

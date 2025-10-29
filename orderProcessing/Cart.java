@@ -1,4 +1,4 @@
-package com.gadgetstore.entities;
+package orderProcessing;
 
 import java.util.ArrayList;
 import java.util.List;
