@@ -1,6 +1,8 @@
-package orderProcessing;
+package com.gadgetstore.services;
 
 import java.util.List;
+
+import com.gadgetstore.entities.Payment;
 
 public class PayPalPayment extends Payment {
     private String accountEmail;

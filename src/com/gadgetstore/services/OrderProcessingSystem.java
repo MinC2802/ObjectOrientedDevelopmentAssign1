@@ -1,4 +1,4 @@
-package orderProcessing;
+package com.gadgetstore.services;
 public class OrderProcessingSystem {
     //Abstraction
     public interface InventoryService {

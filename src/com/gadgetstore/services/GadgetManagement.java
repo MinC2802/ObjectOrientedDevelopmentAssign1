@@ -1,4 +1,4 @@
-package gadgetManagement;
+package com.gadgetstore.services;
 /**Allows Admin to modify, add or remove products
  * 
  */

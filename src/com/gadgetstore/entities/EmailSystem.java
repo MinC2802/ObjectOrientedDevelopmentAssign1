@@ -1,4 +1,6 @@
-package orderProcessing;
+package com.gadgetstore.entities;
+
+import com.gadgetstore.services.EmailService;
 
 public class EmailSystem implements EmailService {
     @Override

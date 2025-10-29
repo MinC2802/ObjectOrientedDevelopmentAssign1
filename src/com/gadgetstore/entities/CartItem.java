@@ -1,4 +1,4 @@
-package orderProcessing;
+package com.gadgetstore.entities;
 
 public class CartItem {
     private String productId;

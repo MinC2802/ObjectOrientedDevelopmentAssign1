@@ -29,12 +29,12 @@ public class InventoryService {
     
     private void initializeSampleProducts() {
         // Add sample products
-        addProduct(new Product("P001", "iPhone 15 Pro", "Latest Apple smartphone with advanced camera", 999.99, 50, "Smartphone", "Apple"));
-        addProduct(new Product("P002", "Samsung Galaxy S24", "Android flagship phone", 849.99, 30, "Smartphone", "Samsung"));
-        addProduct(new Product("P003", "MacBook Pro 16", "Professional laptop for developers", 2399.99, 20, "Laptop", "Apple"));
-        addProduct(new Product("P004", "Dell XPS 13", "Ultra-thin business laptop", 1199.99, 25, "Laptop", "Dell"));
-        addProduct(new Product("P005", "Sony WH-1000XM5", "Noise-cancelling wireless headphones", 399.99, 40, "Headphones", "Sony"));
-        addProduct(new Product("P006", "iPad Air", "Versatile tablet for work and play", 599.99, 35, "Tablet", "Apple"));
+        addProduct(new Product("P001", "iPhone 15 Pro", "Latest Apple smartphone with advanced camera", 999.99, 50, "Smartphone"));
+        addProduct(new Product("P002", "Samsung Galaxy S24", "Android flagship phone", 849.99, 30, "Smartphone"));
+        addProduct(new Product("P003", "MacBook Pro 16", "Professional laptop for developers", 2399.99, 20, "Laptop"));
+        addProduct(new Product("P004", "Dell XPS 13", "Ultra-thin business laptop", 1199.99, 25, "Laptop"));
+        addProduct(new Product("P005", "Sony WH-1000XM5", "Noise-cancelling wireless headphones", 399.99, 40, "Headphones"));
+        addProduct(new Product("P006", "iPad Air", "Versatile tablet for work and play", 599.99, 35, "Tablet"));
     }
     
     // Product management methods
