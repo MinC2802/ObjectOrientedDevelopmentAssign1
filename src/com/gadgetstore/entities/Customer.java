@@ -3,16 +3,15 @@ package com.gadgetstore.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Customer class extending User
- * Demonstrates inheritance and composition
- */
+/** Customer class extending User */
 public class Customer extends User {
     private String phoneNumber;
     private String address;
     private List<Order> orderHistory;
     
+    // Constructor
     public Customer(String name, String email, String password, String phoneNumber, String address) {
+        
         super(name, email, password);
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -54,7 +53,6 @@ public class Customer extends User {
     
     @Override
     public String toString() {
-        return String.format("Customer{userId='%s', name='%s', email='%s', phone='%s', orders=%d}", 
-                           userId, name, email, phoneNumber, orderHistory.size());
+        return String.format("Customer{userId='%s', name='%s', email='%s', phone='%s', orders=%d}", userId, name, email, phoneNumber, orderHistory.size());
     }
 }

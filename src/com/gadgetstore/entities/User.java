@@ -2,18 +2,18 @@ package com.gadgetstore.entities;
 
 import java.util.UUID;
 
-/**
- * Abstract base class for all users in the system
- * Demonstrates abstraction and inheritance
- */
+/** Abstract base class for all users in the system */
+
 public abstract class User {
+    // Protected classes for base class (userId, name, email, password)
     protected String userId;
     protected String name;
     protected String email;
     protected String password;
     
-    // Constructor
+    // Constructor 
     public User(String name, String email, String password) {
+        // Assigns userId using java util
         this.userId = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
@@ -58,7 +58,6 @@ public abstract class User {
     
     @Override
     public String toString() {
-        return String.format("User{userId='%s', name='%s', email='%s', role='%s'}", 
-                           userId, name, email, getRole());
+        return String.format("User{userId='%s', name='%s', email='%s', role='%s'}", userId, name, email, getRole());
     }
 }

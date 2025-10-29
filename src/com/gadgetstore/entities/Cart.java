@@ -3,12 +3,16 @@ package com.gadgetstore.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Cart class to store items temporarily */
+
 public class Cart {
     private String cartId;
     private List<CartItem> cartItems = new ArrayList<>();
 
+    // Constructor (default)
     public Cart() {}
 
+    // Constructor (creation)
     public Cart(String cartId) {
         this.cartId = cartId;
     }
