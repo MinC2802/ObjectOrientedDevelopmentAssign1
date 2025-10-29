@@ -5,12 +5,6 @@ public class Gadget extends Product{
     public String brand;
     public Gadget(String productId, String name, String description, double price, int stock, String category, String brand) {
         super(productId, name, description, price, stock, category);
-        this.productId = productId;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
-        this.category = category;
         this.brand = brand;
     }
     

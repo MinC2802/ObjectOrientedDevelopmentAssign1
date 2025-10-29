@@ -181,7 +181,7 @@ public class Main {
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
             System.out.printf("%d. %s | Stock: %d | Price: $%.2f\n", 
-                i + 1, product.getName(), product.getstock(), product.getPrice());
+                i + 1, product.getName(), product.getStock(), product.getPrice());
         }
         
         ConsoleHelper.pause();
@@ -200,7 +200,7 @@ public class Main {
         
         try {
             InputValidator.validateProductData(name, price, stock);
-            Product product = new Product(id, name, description, price, stock, category, brand);
+            Product product = new Product(id, name, description, price, stock, category);
             inventoryService.addProduct(product);
             System.out.println("Product added successfully!");
         } catch (IllegalArgumentException e) {
@@ -230,17 +230,16 @@ public class Main {
         String name = ConsoleHelper.readNonEmptyString("Name [" + product.getName() + "]: ");
         String description = ConsoleHelper.readNonEmptyString("Description [" + product.getDescription() + "]: ");
         String priceStr = ConsoleHelper.readNonEmptyString("Price [" + product.getPrice() + "]: ");
-        String stockStr = ConsoleHelper.readNonEmptyString("Stock [" + product.getstock() + "]: ");
+        String stockStr = ConsoleHelper.readNonEmptyString("Stock [" + product.getStock() + "]: ");
         String category = ConsoleHelper.readNonEmptyString("Category [" + product.getCategory() + "]: ");
-        String brand = ConsoleHelper.readNonEmptyString("Brand [" + product.getBrand() + "]: ");
         
         try {
             if (!name.isEmpty()) product.setName(name);
             if (!description.isEmpty()) product.setDescription(description);
             if (!priceStr.isEmpty()) product.setPrice(Double.parseDouble(priceStr));
-            if (!stockStr.isEmpty()) product.setstock(Integer.parseInt(stockStr));
+            if (!stockStr.isEmpty()) product.setStock(Integer.parseInt(stockStr));
             if (!category.isEmpty()) product.setCategory(category);
-            if (!brand.isEmpty()) product.setBrand(brand);
+
             
             inventoryService.updateProduct(product);
             System.out.println("Product updated successfully!");
@@ -278,13 +277,13 @@ public class Main {
             return;
         }
         
-        System.out.println("Current stock: " + product.getstock());
+        System.out.println("Current stock: " + product.getStock());
         int quantity = ConsoleHelper.readPositiveInt("Enter quantity to add (negative to remove): ");
         
         try {
             inventoryService.updateStock(productId, quantity);
             System.out.println("Stock updated successfully! New stock: " + 
-                             inventoryService.getProduct(productId).getstock());
+                             inventoryService.getProduct(productId).getStock());
         } catch (InsufficientStockException e) {
             System.out.println("Error updating stock: " + e.getMessage());
         } catch (Exception e) {
@@ -301,7 +300,7 @@ public class Main {
         long totalProducts = products.size();
         long outOfStock = products.stream().filter(p -> !p.isInStock()).count();
         double totalInventoryValue = products.stream()
-                .mapToDouble(p -> p.getPrice() * p.getstock())
+                .mapToDouble(p -> p.getPrice() * p.getStock())
                 .sum();
         
         System.out.printf("Total Products: %d\n", totalProducts);
@@ -325,8 +324,8 @@ public class Main {
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
             System.out.printf("%d. %s - %s | $%.2f | Stock: %d\n", 
-                i + 1, product.getBrand(), product.getName(), 
-                product.getPrice(), product.getstock());
+                i + 1, product.getName(), 
+                product.getPrice(), product.getStock());
         }
         
         ConsoleHelper.pause();
@@ -347,7 +346,7 @@ public class Main {
         for (int i = 0; i < results.size(); i++) {
             Product product = results.get(i);
             System.out.printf("%d. %s - %s | $%.2f | %s\n", 
-                i + 1, product.getBrand(), product.getName(), 
+                i + 1, product.getName(), 
                 product.getPrice(), product.isInStock() ? "In Stock" : "Out of Stock");
         }
         

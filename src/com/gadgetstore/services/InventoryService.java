@@ -75,19 +75,19 @@ public class InventoryService {
             throw new IllegalArgumentException("Product not found");
         }
         
-        if (quantity < 0 && product.getstock() < Math.abs(quantity)) {
+        if (quantity < 0 && product.getStock() < Math.abs(quantity)) {
             throw new InsufficientStockException(
                 String.format("Insufficient stock for %s. Available: %d, Requested: %d",
-                            product.getName(), product.getstock(), Math.abs(quantity))
+                            product.getName(), product.getStock(), Math.abs(quantity))
             );
         }
         
-        product.setstock(product.getstock() + quantity);
+        product.setStock(product.getStock() + quantity);
     }
     
     public boolean checkStock(String productId, int quantity) {
         Product product = products.get(productId);
-        return product != null && product.getstock() >= quantity;
+        return product != null && product.getStock() >= quantity;
     }
     
     // Search functionality
