@@ -1,8 +1,10 @@
-package com.gadgetstore.entities;
+package com.gadgetstore.services;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.gadgetstore.entities.Payment;
 
 /**
  * Represents the processing details of a customer order.

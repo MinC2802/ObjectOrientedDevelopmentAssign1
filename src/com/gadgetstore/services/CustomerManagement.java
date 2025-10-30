@@ -1,7 +1,6 @@
 package com.gadgetstore.services;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import com.gadgetstore.entities.*;
 
 public class CustomerManagement {
