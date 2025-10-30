@@ -1,4 +1,4 @@
-package gadgetManagement;
+package com.gadgetstore.services;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
