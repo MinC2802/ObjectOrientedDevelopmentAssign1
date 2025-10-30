@@ -67,7 +67,7 @@ public class Product {
                              productId, name, price, stock);
     }
     
-    public String getDetaileds() {
+    public String getDetails() {
         return String.format(
             "Product ID: %s\nName: %s\nCategory: %s\nPrice: $%.2f\nStock: %d\nDescription: %s",
             productId, name, category, price, stock, description

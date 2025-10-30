@@ -26,14 +26,5 @@ public class EmailSystem implements EmailService {
     public void sendConfirmationEmail(String recipientEmail, Order order) {
         // Placeholder: send confirmation email
     }
-
-    @Override
-    public void sendCancellationEmail(String recipientEmail, Order order) {
-        // Placeholder: send cancellation email
-    }
-
-    @Override
-    public void sendDeliveryEmail(String recipientEmail, Order order) {
-        // Placeholder: send delivery email
-    }
 }
+

@@ -1,12 +1,13 @@
 package com.gadgetstore.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Represents payment details for an order.
  * Demonstrates encapsulation and abstraction.
  */
-public class Payment {
+public abstract class Payment {
     private String paymentId;
     private String orderId;
     private double amount;
@@ -46,6 +47,12 @@ public class Payment {
     public void updatePaymentStatus(PaymentStatus newStatus) {
         this.paymentStatus = newStatus;
     }
+
+    public abstract void processPayment();
+
+    public boolean validatePayment() { return false; }
+
+    public List<String> viewPaymentDetails() { return null; }
 
     public String getPaymentSummary() {
         return String.format("Payment #%s | Order: %s | Status: %s | Amount: $%.2f",

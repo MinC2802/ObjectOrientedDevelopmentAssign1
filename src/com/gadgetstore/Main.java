@@ -223,7 +223,7 @@ public class Main {
         }
         
         System.out.println("Current product details:");
-        System.out.println(product.getDetailedInfo());
+        System.out.println(product.getDetails());
         
         // Get updated values (empty input keeps current value)
         System.out.println("\nEnter new values (press Enter to keep current):");
@@ -298,7 +298,7 @@ public class Main {
         
         List<Product> products = inventoryService.getAllProducts();
         long totalProducts = products.size();
-        long outOfStock = products.stream().filter(p -> !p.isInStock()).count();
+        long outOfStock = products.stream().filter(p -> !p.checkStock()).count();
         double totalInventoryValue = products.stream()
                 .mapToDouble(p -> p.getPrice() * p.getStock())
                 .sum();
@@ -347,7 +347,7 @@ public class Main {
             Product product = results.get(i);
             System.out.printf("%d. %s - %s | $%.2f | %s\n", 
                 i + 1, product.getName(), 
-                product.getPrice(), product.isInStock() ? "In Stock" : "Out of Stock");
+                product.getPrice(), product.checkStock() ? "In Stock" : "Out of Stock");
         }
         
         ConsoleHelper.pause();
@@ -363,7 +363,7 @@ public class Main {
             return;
         }
         
-        System.out.println(product.getDetailedInfo());
+        System.out.println(product.getDetails());
         ConsoleHelper.pause();
     }
     
@@ -394,7 +394,7 @@ public class Main {
                 continue;
             }
             
-            if (!product.isInStock()) {
+            if (!product.checkStock()) {
                 System.out.println("Product is out of stock.");
                 continue;
             }

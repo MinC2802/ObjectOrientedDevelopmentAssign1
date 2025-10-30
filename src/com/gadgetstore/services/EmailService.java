@@ -9,8 +9,4 @@ import com.gadgetstore.entities.Order;
 public interface EmailService {
 
     void sendConfirmationEmail(String recipientEmail, Order order);
-
-    void sendCancellationEmail(String recipientEmail, Order order);
-
-    void sendDeliveryEmail(String recipientEmail, Order order);
 }
