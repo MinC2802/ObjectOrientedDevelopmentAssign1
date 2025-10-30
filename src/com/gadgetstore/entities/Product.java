@@ -2,7 +2,7 @@ package com.gadgetstore.entities;
 
 public class Product {
 
-    // Private attributes (id, name, desc, price, stock, category)
+    // Product attributes (id, name, desc, price, stock, category)
     protected String productId;
     protected String name;
     protected String description;
@@ -10,7 +10,9 @@ public class Product {
     protected int stock;
     protected String category;
 
-    // Constructor (default)
+    /** 
+     * Constructor (default) with attributes productId, name, description, price, stock, category
+     */
 
     public Product(String productId, String name, String description, double price, int stock, String category) {
         this.productId = productId;
@@ -21,7 +23,10 @@ public class Product {
         this.category = category;
     }
     
-    // Getters and setters with validation
+    /**Getters and setters with validation
+     * 
+     */
+    
     public String getProductId() { return productId; }
     public void setProductId(String productId) { this.productId = productId; }
     
@@ -54,8 +59,6 @@ public class Product {
     
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
-    
-    
     
     public boolean checkStock() {
         return stock > 0;
