@@ -9,7 +9,6 @@ import java.util.List;
  * Demonstrates composition and encapsulation.
  */
 public class OrderProcessing {
-    private String processingId;
     private String orderId;
     private LocalDateTime processingDate;
     private String status;
@@ -21,8 +20,7 @@ public class OrderProcessing {
         this.status = "Pending";
     }
 
-    public OrderProcessing(String processingId, String orderId, String status) {
-        this.processingId = processingId;
+    public OrderProcessing(String orderId, String status) {
         this.orderId = orderId;
         this.processingDate = LocalDateTime.now();
         this.status = status;
@@ -30,9 +28,6 @@ public class OrderProcessing {
     }
 
     // Getters and Setters
-    public String getProcessingId() { return processingId; }
-    public void setProcessingId(String processingId) { this.processingId = processingId; }
-
     public String getOrderId() { return orderId; }
     public void setOrderId(String orderId) { this.orderId = orderId; }
 

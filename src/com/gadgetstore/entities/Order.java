@@ -29,69 +29,48 @@ public class Order {
         this.totalAmount = 0.0;
     }
     
-    // Getters
+    // Getters and Setters
     public String getOrderId() { return orderId; }
+    public void setOrderId(String orderId) { this.orderId = orderId; }
+
     public String getCustomerId() { return customerId; }
+    public void setCustomerId(String customerId) { this.customerId = customerId; }
+
     public LocalDateTime getOrderDate() { return orderDate; }
+    public void setOrderDate(LocalDateTime orderDate) { this.orderDate = orderDate; }
+
     public OrderStatus getStatus() { return status; }
-    public List<OrderItem> getItems() { return new ArrayList<>(items); } // Defensive copy
+    public void setStatus(OrderStatus status) { this.status = status; }
+
+    public List<OrderItem> getItems() { return items; }
+    public void setItems(List<OrderItem> items) { this.items = items; }
+
     public double getTotalAmount() { return totalAmount; }
-    
-    // Business methods
+    public void setTotalAmount(double totalAmount) { this.totalAmount = totalAmount; }
+
+    // Placeholder methods (no functionality)
     public void addItem(Product product, int quantity) {
-        if (product == null) {
-            throw new IllegalArgumentException("Product cannot be null");
-        }
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity must be positive");
-        }
-        
-        // Check if product already exists in order
-        for (OrderItem item : items) {
-            if (item.getProduct().getProductId().equals(product.getProductId())) {
-                item.setQuantity(item.getQuantity() + quantity);
-                recalculateTotal();
-                return;
-            }
-        }
-        
-        // Add new item
-        OrderItem newItem = new OrderItem(product, quantity);
-        items.add(newItem);
-        recalculateTotal();
+        // Adds an item to the order
     }
-    
+
     public void removeItem(String productId) {
-        items.removeIf(item -> item.getProduct().getProductId().equals(productId));
-        recalculateTotal();
+        // Removes an item from the order
     }
-    
+
     public void updateStatus(OrderStatus newStatus) {
-        this.status = newStatus;
+        // Updates the order status
     }
-    
+
     private void recalculateTotal() {
-        totalAmount = items.stream()
-                .mapToDouble(OrderItem::getItemTotal)
-                .sum();
+        // Recalculates the total amount of the order
     }
-    
+
     public String getOrderSummary() {
-        return String.format("Order#%s | Date: %s | Status: %s | Total: $%.2f | Items: %d",
-                           orderId, orderDate.toLocalDate(), status, totalAmount, items.size());
+        // Returns a formatted summary of the order
+        return null;
     }
-    
+
     public void displayOrderDetails() {
-        System.out.println("\n=== ORDER DETAILS ===");
-        System.out.println("Order ID: " + orderId);
-        System.out.println("Date: " + orderDate);
-        System.out.println("Status: " + status);
-        System.out.println("Items:");
-        
-        for (int i = 0; i < items.size(); i++) {
-            System.out.println("  " + (i + 1) + ". " + items.get(i));
-        }
-        
-        System.out.println("Total Amount: $" + String.format("%.2f", totalAmount));
+        // Displays detailed order information
     }
 }
