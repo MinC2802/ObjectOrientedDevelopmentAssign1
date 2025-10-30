@@ -20,68 +20,6 @@ public class Product {
         this.stock = stock;
         this.category = category;
     }
-
-    // Getters and setters with validation
-    public String getProductId() {
-        return productId;
-    }
-
-    public synchronized void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public synchronized void setName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Product name cannot be empty");
-        }
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public synchronized void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public synchronized void setPrice(double price) {
-        if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
-        }
-        this.price = price;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public synchronized void setStock(int stock) {
-        if (stock < 0) {
-            throw new IllegalArgumentException("Stock quantity cannot be negative");
-        }
-        this.stock = stock;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public synchronized void setCategory(String category) {
-        this.category = category;
-    }
-
-
-        this.category = category;
-    }
     
     // Getters and setters with validation
     public String getProductId() { return productId; }
@@ -117,8 +55,6 @@ public class Product {
     public String getCategory() { return category; }
     public synchronized void setCategory(String category) { this.category = category; }
     
-    
- parent of f284fb3 (packaged but with...a few errors)
     // Business methods
     public synchronized void reduceStock(int quantity) {
         if (quantity > stock) {
