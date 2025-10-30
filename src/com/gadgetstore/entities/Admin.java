@@ -1,5 +1,6 @@
 package com.gadgetstore.entities;
 
+
 /** Abstract derived class for all users in the system */
 
 public class Admin extends User {
@@ -25,5 +26,20 @@ public class Admin extends User {
     @Override
     public String toString() {
         return String.format("Admin{userId='%s', name='%s', email='%s', level='%s'}", userId, name, email, adminLevel);
+    }
+
+    // Business methods
+    public void reduceStock(int quantity, int stock) {
+        if (quantity > stock) {
+            throw new IllegalArgumentException("Insufficient stock");
+        }
+        stock -= quantity;
+    }
+
+    public void addStock(int quantity, int stock) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity to add cannot be negative");
+        }
+        stock += quantity;
     }
 }
