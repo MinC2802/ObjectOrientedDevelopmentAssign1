@@ -1,54 +1,37 @@
 package gadgetManagement;
-/**Allows Admin to modify, add or remove products
- * 
- */
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class GadgetManagement {
+    // ConcurrentHashMap for thread-safe operations
+    private final Map<String, Gadgets> gadgets = new ConcurrentHashMap<>();
 
-    public void addProduct() {
-        //TODO: ADD LOGIC TO ADD PRODUCTS TO THE SYSTEM
-    }
-
-    public void addGadget() {
-        //TODO: ADD LOGIC TO ADD GADGETS TO THE SYSTEM
+    public void addGadget(Gadgets gadget) {
+        gadgets.put(gadget.getProductId(), gadget);
     }
 
-    public void removeProduct() {
-        //TODO: ADD LOGIC TO REMOVE PRODUCTS IN THE SYSTEM
+    public Gadgets getGadget(String id) {
+        return gadgets.get(id);
     }
 
-    public void removeGadget() {
-        //TODO: ADD LOGIC TO REMOVE GADGETS IN THE SYSTEM
+    public void updateStock(String id, int delta) throws Exception {
+        Gadgets gadget = gadgets.get(id);
+        if (gadget == null) {
+            throw new Exception("Gadget not found: " + id);
+        }
+
+        synchronized (gadget) {
+            int newStock = gadget.getStock() + delta;
+            if (newStock < 0) {
+                throw new Exception("Insufficient stock for " + gadget.getName());
+            }
+            gadget.setStock(newStock);
+        }
     }
 
-/**This section contains methods to edit each detail of a gadget
- * (e.g. name, description, category)
- */
-    public void updateName() {
-        //TODO: ADD LOGIC TO CHANGE NAME
-        System.out.println("updateName() called");
-    }
-    public void updateDesc() {
-        //TODO: ADD LOGIC TO CHANGE DESCRIPTION
-        System.out.println("updateDesc() called");
-    }
-    public void updateStock() {
-        //TODO: ADD LOGIC TO CHANGE STOCK LEVELS
-        System.out.println("updateStock() called");
-    }
-    public void updatePrice() {
-        //TODO: ADD LOGIC TO CHANGE PRICES
-        System.out.println("updatePrice() called");
-    }
-    public void updateCategory() {
-        //TODO: ADD LOGIC TO CHANGE CATEGORY
-        System.out.println("updateCategory() called");
-    }
-    public void updateBrand() {
-        //TODO: ADD LOGIC TO CHANGE BRAND
-        System.out.println("updateBrand() called");
-    }
-
-    public void printProducts() {
-        //TODO: ADD LOGIC TO SHOW ALL PRODUCTS
+    public void printInventory() {
+        System.out.println("\n--- Current Inventory ---");
+        gadgets.values().forEach(System.out::println);
     }
 }
