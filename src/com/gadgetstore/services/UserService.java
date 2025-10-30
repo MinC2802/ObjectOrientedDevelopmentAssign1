@@ -9,7 +9,6 @@ import java.util.Map;
 
 /**
  * UserService managing user authentication and registration
- * Demonstrates polymorphism and service layer pattern
  */
 public class UserService {
     private static UserService instance;

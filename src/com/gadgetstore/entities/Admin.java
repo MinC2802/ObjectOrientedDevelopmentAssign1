@@ -1,7 +1,11 @@
 package com.gadgetstore.entities;
 
+import java.util.HashMap;
+import java.util.Map;
 
-/** Abstract derived class for all users in the system */
+import com.gadgetstore.entities.Product;
+
+/* Abstract derived class for all users in the system */
 
 public class Admin extends User {
     // Private class adminLevel
@@ -30,16 +34,11 @@ public class Admin extends User {
 
     // Business methods
     public void reduceStock(int quantity, int stock) {
-        if (quantity > stock) {
-            throw new IllegalArgumentException("Insufficient stock");
-        }
-        stock -= quantity;
+       //TODO : include logic for reduce stock
+
     }
 
     public void addStock(int quantity, int stock) {
-        if (quantity < 0) {
-            throw new IllegalArgumentException("Quantity to add cannot be negative");
-        }
-        stock += quantity;
+        //TODO : include logic for reduce stock
     }
 }

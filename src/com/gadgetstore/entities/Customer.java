@@ -11,7 +11,7 @@ public class Customer extends User {
     
     // Constructor
     public Customer(String name, String email, String password, String phoneNumber, String address) {
-        
+        // Inherits from user
         super(name, email, password);
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -34,21 +34,11 @@ public class Customer extends User {
     
     // Business methods
     public void addOrder(Order order) {
-        if (order != null) {
-            orderHistory.add(order);
-        }
+         //TODO : include logic for reduce stock
     }
     
     public void viewOrderHistory() {
-        if (orderHistory.isEmpty()) {
-            System.out.println("No orders found.");
-            return;
-        }
-        
-        System.out.println("\n=== ORDER HISTORY ===");
-        for (int i = 0; i < orderHistory.size(); i++) {
-            System.out.println((i + 1) + ". " + orderHistory.get(i).getOrderSummary());
-        }
+         //TODO : include logic for reduce stock
     }
     
     @Override
