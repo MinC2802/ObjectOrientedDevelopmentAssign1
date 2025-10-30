@@ -44,8 +44,8 @@ public class Product {
         this.price = price; 
     }
     
-    public int getstock() { return stock; }
-    public void setstock(int stock) { 
+    public int getStock() { return stock; }
+    public void setStock(int stock) { 
         if (stock < 0) {
             throw new IllegalArgumentException("Stock quantity cannot be negative");
         }
