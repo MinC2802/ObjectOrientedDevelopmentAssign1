@@ -8,11 +8,11 @@ import java.util.List;
  * Demonstrates encapsulation and abstraction.
  */
 public abstract class Payment {
-    private String paymentId;
-    private String orderId;
-    private double amount;
-    private LocalDateTime paymentDate;
-    private String paymentStatus;
+    protected String paymentId;
+    protected String orderId;
+    protected double amount;
+    protected LocalDateTime paymentDate;
+    protected String paymentStatus;
 
 
     // Constructors
