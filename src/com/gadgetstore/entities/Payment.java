@@ -12,12 +12,8 @@ public abstract class Payment {
     private String orderId;
     private double amount;
     private LocalDateTime paymentDate;
-    private PaymentStatus paymentStatus;
+    private String paymentStatus;
 
-    // Enum for payment status
-    public enum PaymentStatus {
-        PENDING, COMPLETED, FAILED
-    }
 
     // Constructors
     public Payment() {}
@@ -27,10 +23,10 @@ public abstract class Payment {
         this.orderId = orderId;
         this.amount = amount;
         this.paymentDate = LocalDateTime.now();
-        this.paymentStatus = PaymentStatus.PENDING;
+        this.paymentStatus = "PENDING";
     }
 
-    public Payment(String paymentId, String orderId, double amount, PaymentStatus paymentStatus) {
+    public Payment(String paymentId, String orderId, double amount, String paymentStatus) {
         this.paymentId = paymentId;
         this.orderId = orderId;
         this.amount = amount;
@@ -51,8 +47,8 @@ public abstract class Payment {
     public LocalDateTime getPaymentDate() { return paymentDate; }
     public void setPaymentDate(LocalDateTime paymentDate) { this.paymentDate = paymentDate; }
 
-    public PaymentStatus getPaymentStatus() { return paymentStatus; }
-    public void setPaymentStatus(PaymentStatus paymentStatus) { this.paymentStatus = paymentStatus; }
+    public String getPaymentStatus() { return paymentStatus; }
+    public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
 
     // Abstract and placeholder methods
     public abstract void processPayment();   // Abstract method to be implemented by subclasses

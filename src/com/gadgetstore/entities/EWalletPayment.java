@@ -1,23 +1,22 @@
 package com.gadgetstore.entities;
 
-/**
- * Represents a payment made through an e-wallet (e.g., TNG, GrabPay).
- * Demonstrates inheritance and polymorphism.
- */
 public class EWalletPayment extends Payment {
+    // attributes: phoneNumber, address, orderHistory
     private String walletProvider;
     private String walletId;
 
     public EWalletPayment() {}
 
+    // Constructor
     public EWalletPayment(String paymentId, String orderId, double amount, 
-                          PaymentStatus paymentStatus, String walletProvider, 
+                          String paymentStatus, String walletProvider, 
                           String walletId) {
         super(paymentId, orderId, amount, paymentStatus);
         this.walletProvider = walletProvider;
         this.walletId = walletId;
     }
 
+    // Getters and setters
     public String getWalletProvider() { return walletProvider; }
     public void setWalletProvider(String walletProvider) { this.walletProvider = walletProvider; }
 

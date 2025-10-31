@@ -3,15 +3,14 @@ package com.gadgetstore.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Customer class extending User */
 public class Customer extends User {
+    // attributes: phoneNumber, address, orderHistory
     private String phoneNumber;
     private String address;
     private List<Order> orderHistory;
     
     // Constructor
     public Customer(String name, String email, String password, String phoneNumber, String address) {
-        // Inherits from user
         super(name, email, password);
         this.phoneNumber = phoneNumber;
         this.address = address;

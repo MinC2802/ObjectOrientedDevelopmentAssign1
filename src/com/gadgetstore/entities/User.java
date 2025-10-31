@@ -10,8 +10,8 @@ public abstract class User {
     protected String name;
     protected String email;
     protected String password;
-    
-    // Constructor 
+
+    // Constructor
     public User(String name, String email, String password) {
         // Assigns userId using java util
         this.userId = UUID.randomUUID().toString();
@@ -19,32 +19,31 @@ public abstract class User {
         this.email = email;
         this.password = password;
     }
-    
+
     // Abstract method - must be implemented by subclasses
     public abstract String getRole();
-    
+
     // Getters and setters with validation
     public String getUserId() { return userId; }
-    
+
     public String getName() { return name; }
-    public void setName(String name) { 
-        this.name = name; 
-    }
-    
+    public void setName(String name) { this.name = name; }
+
     public String getEmail() { return email; }
-    public void setEmail(String email) { 
-        this.email = email; 
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-    
+
     public boolean validatePassword(String password) {
-         //TODO : include logic for reduce stock
+        // TODO : include logic for reduce stock
         return false;
     }
-    
+
     public void changePassword(String oldPassword, String newPassword) {
-        //TODO : include logic for reduce stock
+        // TODO : include logic for reduce stock
     }
-    
+
     @Override
     public String toString() {
         return String.format("User{userId='%s', name='%s', email='%s', role='%s'}", userId, name, email, getRole());

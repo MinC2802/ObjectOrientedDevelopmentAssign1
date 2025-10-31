@@ -12,19 +12,15 @@ public class Order {
     private String orderId;
     private String customerId;
     private LocalDateTime orderDate;
-    private OrderStatus status;
+    private String status;
     private List<OrderItem> items;
     private double totalAmount;
     
-    public enum OrderStatus {
-        PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
-    }
-    
-    public Order(String orderId, String customerId) {
+    public Order(String orderId, String customerId, String status){
         this.orderId = orderId;
         this.customerId = customerId;
         this.orderDate = LocalDateTime.now();
-        this.status = OrderStatus.PENDING;
+        this.status = status;
         this.items = new ArrayList<>();
         this.totalAmount = 0.0;
     }
@@ -39,8 +35,8 @@ public class Order {
     public LocalDateTime getOrderDate() { return orderDate; }
     public void setOrderDate(LocalDateTime orderDate) { this.orderDate = orderDate; }
 
-    public OrderStatus getStatus() { return status; }
-    public void setStatus(OrderStatus status) { this.status = status; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
     public List<OrderItem> getItems() { return items; }
     public void setItems(List<OrderItem> items) { this.items = items; }
@@ -57,7 +53,7 @@ public class Order {
         // Removes an item from the order
     }
 
-    public void updateStatus(OrderStatus newStatus) {
+    public void updateStatus(String newStatus) {
         // Updates the order status
     }
 
@@ -65,12 +61,7 @@ public class Order {
         // Recalculates the total amount of the order
     }
 
-    public String getOrderSummary() {
+    public void getOrderSummary() {
         // Returns a formatted summary of the order
-        return null;
-    }
-
-    public void displayOrderDetails() {
-        // Displays detailed order information
     }
 }
