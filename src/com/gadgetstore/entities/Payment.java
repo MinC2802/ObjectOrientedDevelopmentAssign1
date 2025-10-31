@@ -14,13 +14,14 @@ public abstract class Payment {
     private LocalDateTime paymentDate;
     private PaymentStatus paymentStatus;
 
+    // Enum for payment status
     public enum PaymentStatus {
         PENDING, COMPLETED, FAILED
     }
+
+    // Constructors
     public Payment() {}
 
-
-    // 3-parameter constructor (default)
     public Payment(String paymentId, String orderId, double amount) {
         this.paymentId = paymentId;
         this.orderId = orderId;
@@ -29,7 +30,6 @@ public abstract class Payment {
         this.paymentStatus = PaymentStatus.PENDING;
     }
 
-    // ✅ Added 4-parameter constructor
     public Payment(String paymentId, String orderId, double amount, PaymentStatus paymentStatus) {
         this.paymentId = paymentId;
         this.orderId = orderId;
@@ -38,24 +38,37 @@ public abstract class Payment {
         this.paymentStatus = paymentStatus;
     }
 
+    // Getters and Setters
     public String getPaymentId() { return paymentId; }
-    public String getOrderId() { return orderId; }
-    public double getAmount() { return amount; }
-    public LocalDateTime getPaymentDate() { return paymentDate; }
-    public PaymentStatus getPaymentStatus() { return paymentStatus; }
+    public void setPaymentId(String paymentId) { this.paymentId = paymentId; }
 
-    public void updatePaymentStatus(PaymentStatus newStatus) {
-        this.paymentStatus = newStatus;
+    public String getOrderId() { return orderId; }
+    public void setOrderId(String orderId) { this.orderId = orderId; }
+
+    public double getAmount() { return amount; }
+    public void setAmount(double amount) { this.amount = amount; }
+
+    public LocalDateTime getPaymentDate() { return paymentDate; }
+    public void setPaymentDate(LocalDateTime paymentDate) { this.paymentDate = paymentDate; }
+
+    public PaymentStatus getPaymentStatus() { return paymentStatus; }
+    public void setPaymentStatus(PaymentStatus paymentStatus) { this.paymentStatus = paymentStatus; }
+
+    // Abstract and placeholder methods
+    public abstract void processPayment();   // Abstract method to be implemented by subclasses
+
+    public boolean validatePayment() {
+        // Placeholder for payment validation logic
+        return false;
     }
 
-    public abstract void processPayment();
-
-    public boolean validatePayment() { return false; }
-
-    public List<String> viewPaymentDetails() { return null; }
+    public List<String> viewPaymentDetails() {
+        // Placeholder for viewing payment details
+        return null;
+    }
 
     public String getPaymentSummary() {
-        return String.format("Payment #%s | Order: %s | Status: %s | Amount: $%.2f",
-                paymentId, orderId, paymentStatus, amount);
+        // Placeholder for returning payment summary
+        return null;
     }
 }

@@ -28,32 +28,21 @@ public abstract class User {
     
     public String getName() { return name; }
     public void setName(String name) { 
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
         this.name = name; 
     }
     
     public String getEmail() { return email; }
     public void setEmail(String email) { 
-        if (email == null || !email.contains("@")) {
-            throw new IllegalArgumentException("Invalid email format");
-        }
         this.email = email; 
     }
     
     public boolean validatePassword(String password) {
-        return this.password.equals(password);
+         //TODO : include logic for reduce stock
+        return false;
     }
     
     public void changePassword(String oldPassword, String newPassword) {
-        if (!validatePassword(oldPassword)) {
-            throw new IllegalArgumentException("Old password is incorrect");
-        }
-        if (newPassword == null || newPassword.length() < 6) {
-            throw new IllegalArgumentException("Password must be at least 6 characters long");
-        }
-        this.password = newPassword;
+        //TODO : include logic for reduce stock
     }
     
     @Override
