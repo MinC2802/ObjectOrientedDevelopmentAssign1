@@ -3,6 +3,8 @@ package com.gadgetstore.entities;
 public class Gadget extends Product{
 
     public String brand;
+    
+    //Constructor
     public Gadget(String productId, String name, String description, double price, int stock, String category, String brand) {
         super(productId, name, description, price, stock, category);
         this.brand = brand;

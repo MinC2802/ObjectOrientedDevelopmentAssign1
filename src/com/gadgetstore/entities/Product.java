@@ -23,18 +23,12 @@ public class Product {
         this.category = category;
     }
     
-    /**Getters and setters with validation
-     * 
-     */
-    
+    //Getters and setters with validation
     public String getProductId() { return productId; }
     public void setProductId(String productId) { this.productId = productId; }
     
     public String getName() { return name; }
     public void setName(String name) { 
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Product name cannot be empty");
-        }
         this.name = name; 
     }
     
@@ -43,17 +37,11 @@ public class Product {
     
     public double getPrice() { return price; }
     public void setPrice(double price) { 
-        if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
-        }
         this.price = price; 
     }
     
     public int getStock() { return stock; }
     public void setStock(int stock) { 
-        if (stock < 0) {
-            throw new IllegalArgumentException("Stock quantity cannot be negative");
-        }
         this.stock = stock; 
     }
     

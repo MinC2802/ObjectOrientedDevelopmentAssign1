@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * Order class representing customer orders
- * Demonstrates composition and aggregation
  */
+
 public class Order {
     private String orderId;
     private String customerId;
@@ -15,7 +15,8 @@ public class Order {
     private String status;
     private List<OrderItem> items;
     private double totalAmount;
-    
+
+    //Constructor
     public Order(String orderId, String customerId, String status){
         this.orderId = orderId;
         this.customerId = customerId;

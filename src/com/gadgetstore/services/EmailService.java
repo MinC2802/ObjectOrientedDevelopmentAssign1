@@ -8,5 +8,5 @@ import com.gadgetstore.entities.Order;
  */
 public interface EmailService {
 
-    void sendConfirmationEmail(String recipientEmail, Order order);
+    //TODO : Send Confirmation Email Logic
 }

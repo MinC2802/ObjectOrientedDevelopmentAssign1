@@ -9,7 +9,7 @@ public abstract class User {
     protected String userId;
     protected String name;
     protected String email;
-    protected String password;
+    protected String passwordHash;
 
     // Constructor
     public User(String name, String email, String password) {
@@ -17,7 +17,7 @@ public abstract class User {
         this.userId = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.passwordHash = password;
     }
 
     // Abstract method - must be implemented by subclasses
@@ -35,6 +35,7 @@ public abstract class User {
         this.email = email;
     }
 
+    //Business methods
     public boolean validatePassword(String password) {
         // TODO : include logic for reduce stock
         return false;
