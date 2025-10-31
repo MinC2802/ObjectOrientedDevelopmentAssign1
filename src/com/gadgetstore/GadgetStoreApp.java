@@ -1,6 +1,10 @@
 package com.gadgetstore;
 
 import java.util.*;
+import com.gadgetstore.*;
+import com.gadgetstore.services.CustomerManagement;
+import com.gadgetstore.services.GadgetManagement;
+import com.gadgetstore.services.OrderProcessing;
 
 public class GadgetStoreApp {
     private Scanner scanner;
@@ -35,12 +39,12 @@ public class GadgetStoreApp {
     }
     
     public void start() {
-        System.out.println("🛍️  Welcome to Gadget Store");
+        System.out.println("  Welcome to Gadget Store");
         
         try {
             mainLoop();
         } catch (Exception e) {
-            System.out.println("❌ System error: " + e.getMessage());
+            System.out.println(" System error: " + e.getMessage());
         } finally {
             scanner.close();
         }
@@ -64,10 +68,10 @@ public class GadgetStoreApp {
                     register();
                     break;
                 case "3":
-                    System.out.println("Thank you for visiting! 👋");
+                    System.out.println("Thank you for visiting! ");
                     return;
                 default:
-                    System.out.println("❌ Invalid choice! Please try again.");
+                    System.out.println(" Invalid choice! Please try again.");
             }
         }
     }
@@ -81,7 +85,7 @@ public class GadgetStoreApp {
             String password = scanner.nextLine().trim();
             
             if (username.isEmpty() || password.isEmpty()) {
-                System.out.println("❌ Username and password cannot be empty!");
+                System.out.println(" Username and password cannot be empty!");
                 return;
             }
             
@@ -90,15 +94,15 @@ public class GadgetStoreApp {
                 
                 currentUser = username;
                 userRole = userRoles.get(username);
-                System.out.println("✅ Login successful! Welcome " + username);
+                System.out.println(" Login successful! Welcome " + username);
                 showRoleMenu();
                 
             } else {
-                System.out.println("❌ Invalid username or password!");
+                System.out.println(" Invalid username or password!");
             }
             
         } catch (Exception e) {
-            System.out.println("❌ Login error: " + e.getMessage());
+            System.out.println(" Login error: " + e.getMessage());
         }
     }
     
@@ -113,26 +117,26 @@ public class GadgetStoreApp {
             String role = scanner.nextLine().trim().toLowerCase();
             
             if (username.isEmpty() || password.isEmpty()) {
-                System.out.println("❌ Username and password cannot be empty!");
+                System.out.println(" Username and password cannot be empty!");
                 return;
             }
             
             if (userCredentials.containsKey(username)) {
-                System.out.println("❌ Username already exists!");
+                System.out.println(" Username already exists!");
                 return;
             }
             
             if (!role.equals("admin") && !role.equals("customer")) {
-                System.out.println("❌ Role must be 'admin' or 'customer'!");
+                System.out.println(" Role must be 'admin' or 'customer'!");
                 return;
             }
             
             userCredentials.put(username, password);
             userRoles.put(username, role);
-            System.out.println("✅ Registration successful! You can now login.");
+            System.out.println(" Registration successful! You can now login.");
             
         } catch (Exception e) {
-            System.out.println("❌ Registration error: " + e.getMessage());
+            System.out.println(" Registration error: " + e.getMessage());
         }
     }
     
@@ -149,10 +153,9 @@ public class GadgetStoreApp {
     private void showAdminMenu() {
         System.out.println("\n=== ADMIN DASHBOARD ===");
         System.out.println("Logged in as: " + currentUser);
-        System.out.println("1. 📦 Manage Products");
-        System.out.println("2. 👥 Manage Customers");
-        System.out.println("3. 📋 View Orders");
-        System.out.println("4. 🚪 Logout");
+        System.out.println("1.  Manage Products");
+        System.out.println("2.  View Orders");
+        System.out.println("3.  Logout");
         System.out.print("Choose option: ");
         
         String choice = scanner.nextLine();
@@ -160,28 +163,27 @@ public class GadgetStoreApp {
         switch (choice) {
             case "1":
                 System.out.println("Opening product management...");
+                GadgetManagement g1 = new GadgetManagement();
                 break;
             case "2":
-                System.out.println("Opening customer management...");
+                System.out.println("Viewing all orders...");
+                OrderProcessing o1 = new OrderProcessing();
                 break;
             case "3":
-                System.out.println("Viewing all orders...");
-                break;
-            case "4":
                 logout();
                 break;
             default:
-                System.out.println("❌ Invalid choice!");
+                System.out.println(" Invalid choice!");
         }
     }
     
     private void showCustomerMenu() {
         System.out.println("\n=== CUSTOMER DASHBOARD ===");
         System.out.println("Welcome, " + currentUser + "!");
-        System.out.println("1. 🛒 Browse Products");
-        System.out.println("2. 📝 Place Order");
-        System.out.println("3. 📦 My Orders");
-        System.out.println("4. 🚪 Logout");
+        System.out.println("1.  Browse Products");
+        System.out.println("2.  Place Order");
+        System.out.println("3.  My Orders");
+        System.out.println("4.  Logout");
         System.out.print("Choose option: ");
         
         String choice = scanner.nextLine();
@@ -189,23 +191,26 @@ public class GadgetStoreApp {
         switch (choice) {
             case "1":
                 System.out.println("Browsing products...");
+                GadgetManagement g1 = new GadgetManagement();
                 break;
             case "2":
                 System.out.println("Placing order...");
+                CustomerManagement o1 = new CustomerManagement();
                 break;
             case "3":
                 System.out.println("Viewing your orders...");
+                CustomerManagement c1 = new CustomerManagement();
                 break;
             case "4":
                 logout();
                 break;
             default:
-                System.out.println("❌ Invalid choice!");
+                System.out.println(" Invalid choice!");
         }
     }
     
     private void logout() {
-        System.out.println("👋 Logging out " + currentUser + "...");
+        System.out.println("Logging out " + currentUser + "...");
         currentUser = null;
         userRole = null;
     }
