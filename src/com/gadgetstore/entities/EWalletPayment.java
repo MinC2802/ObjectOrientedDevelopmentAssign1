@@ -24,6 +24,6 @@ public class EWalletPayment extends Payment {
     public void setWalletId(String walletId) { this.walletId = walletId; }
 
     public void processPayment() {
-        // Placeholder: process e-wallet payment
+        // TODO: process e-wallet payment
     }
 }

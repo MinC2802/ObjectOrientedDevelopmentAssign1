@@ -54,17 +54,17 @@ public abstract class Payment {
     public abstract void processPayment();   // Abstract method to be implemented by subclasses
 
     public boolean validatePayment() {
-        // Placeholder for payment validation logic
+        // TODO: Placeholder for payment validation logic
         return false;
     }
 
     public List<String> viewPaymentDetails() {
-        // Placeholder for viewing payment details
+        // TODO: Placeholder for viewing payment details
         return null;
     }
 
     public String getPaymentSummary() {
-        // Placeholder for returning payment summary
+        // TODO: Placeholder for returning payment summary
         return null;
     }
 }

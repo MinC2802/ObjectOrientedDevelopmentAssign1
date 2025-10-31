@@ -3,6 +3,11 @@ package com.gadgetstore.services;
 import java.util.*;
 import com.gadgetstore.entities.*;
 
+/**
+ * Represents the customer making an order.
+ * Demonstrates composition and encapsulation.
+ */ 
+
 public class CustomerManagement {
     private Map<String, Customer> customers;
     private Map<String, Product> products;
@@ -11,7 +16,6 @@ public class CustomerManagement {
         this.customers = new HashMap<>();
         this.products = new HashMap<>();
     }
-    
     
     // Product management
     public void addProduct(Product product) {

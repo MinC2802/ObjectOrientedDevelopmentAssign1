@@ -47,22 +47,22 @@ public class Order {
 
     // Placeholder methods (no functionality)
     public void addItem(Product product, int quantity) {
-        // Adds an item to the order
+        // TODO: Adds an item to the order
     }
 
     public void removeItem(String productId) {
-        // Removes an item from the order
+        // TODO: Removes an item from the order
     }
 
     public void updateStatus(String newStatus) {
-        // Updates the order status
+        // TODO: Updates the order status
     }
 
     private void recalculateTotal() {
-        // Recalculates the total amount of the order
+        // TODO: Recalculates the total amount of the order
     }
 
     public void getOrderSummary() {
-        // Returns a formatted summary of the order
+        // TODO: Returns a formatted summary of the order
     }
 }

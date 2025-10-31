@@ -30,6 +30,6 @@ public class CreditCardPayment extends Payment {
     public void setExpiryDate(String expiryDate) { this.expiryDate = expiryDate; }
 
     public void processPayment() {
-        // Placeholder: process credit card payment
+        // TODO: process credit card payment
     }
 }

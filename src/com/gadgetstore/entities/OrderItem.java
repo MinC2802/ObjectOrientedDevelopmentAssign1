@@ -25,13 +25,13 @@ public class OrderItem {
 
     // Placeholder methods
     public double getItemTotal() {
-        // Returns total price for this item
+        // TODO: Returns total price for this item
         return 0;
     }
 
     @Override
     public String toString() {
-        // Returns formatted string of product info
+        // TODO: Returns formatted string of product info
         return null;
     }
 }
